@@ -8,7 +8,14 @@ import download_files
 
 # URL de l'API
 st.set_page_config(page_title="Classification Clients Banque", page_icon=":chart_with_upwards_trend:", layout="wide")
-df = database_connexion.data_copy
+
+#local data file url 
+file = "../data/donnees_labelisees.xlsx"
+df = pd.read_excel(file)
+df = df[df.columns[1:]]
+
+#Database connexion via mongodb cluster
+#df = database_connexion.data_copy
 
 # Chargement des données
 data = df.copy()
